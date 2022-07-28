@@ -7,8 +7,12 @@ import java.util.Scanner;
  *
  * Dependencies: None
  */
-public class UserInput {
+public class UserInput extends UserOutput{
     private static Scanner scanner = new Scanner(System.in);
+
+    public UserInput() {
+        super(displayItems());
+    }
 
     public static String getHomeScreenOption() {
         System.out.println("What would you like to do?");
@@ -25,7 +29,7 @@ public class UserInput {
         String option = selectedOption.trim().toLowerCase();
         System.out.println("option = " + option);
         if (option.equals("d")) {
-            return "display";
+            return displayItems();
         }
         else if (option.equals("p")) {
             return "purchase";
