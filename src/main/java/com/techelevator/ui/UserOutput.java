@@ -24,11 +24,11 @@ public class UserOutput {
 
     public static String displayItems() {
         File vendingItems = new File("catering.csv");
-        String line;
+
 
         try (Scanner fileInput = new Scanner(vendingItems)) {
-            while (fileInput.hasNextLine()) {
-                line = fileInput.nextLine();
+            while(fileInput.hasNextLine()){
+                String line = fileInput.nextLine();
                 System.out.println(line);
             }
         } catch (FileNotFoundException e) {
