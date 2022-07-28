@@ -1,5 +1,6 @@
 package com.techelevator.ui;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -7,12 +8,10 @@ import java.util.Scanner;
  *
  * Dependencies: None
  */
-public class UserInput extends UserOutput{
+public class UserInput {
     private static Scanner scanner = new Scanner(System.in);
 
-    public UserInput() {
-        super(displayItems());
-    }
+
 
     public static String getHomeScreenOption() {
         System.out.println("What would you like to do?");
@@ -29,7 +28,7 @@ public class UserInput extends UserOutput{
         String option = selectedOption.trim().toLowerCase();
         System.out.println("option = " + option);
         if (option.equals("d")) {
-            return displayItems();
+            return "display";
         }
         else if (option.equals("p")) {
             return "purchase";
