@@ -23,7 +23,7 @@ public BigDecimal feedMoney(){
         Double amount = moneyIn.nextDouble();
         balance += amount;
         totalBalance = BigDecimal.valueOf(balance);
-        return totalBalance;
+        return null;
 
     }
     return totalBalance;
