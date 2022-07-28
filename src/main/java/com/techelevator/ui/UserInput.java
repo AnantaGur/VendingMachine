@@ -60,7 +60,7 @@ public class UserInput {
         String option = selectedOption.trim().toLowerCase();
         System.out.println("option = " + option);
         if (option.equals("m")) {
-            return "feed Money";
+            return "Feed Money";
 
         }
         else if (option.equals("s")) {

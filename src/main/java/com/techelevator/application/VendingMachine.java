@@ -34,13 +34,14 @@ public class VendingMachine extends Inventory{
                 }
 
             } else if (choice.equals("purchase")) {
-
+            while (true){
                 UserOutput.displayPurchaseScreen();
                 choice = UserInput.getPurchaseScreenOption();
                 System.out.println(choice);
-                if (choice.equals("m")) {
+                if (choice.equals("Feed Money")) {
                     money.feedMoney();
                 }
+            }
                 // make a purchase
             } else if (choice.equals("exit")) {
                 // good bye
