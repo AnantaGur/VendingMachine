@@ -13,12 +13,15 @@ public class Inventory {
     private int quantity;
     private String type;
 
-    public Inventory(String id, String name, BigDecimal price, String type) {
+    public Inventory(String id, String name, BigDecimal price) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.quantity = 6;
-        this.type = type;
+    }
+
+    public Inventory() {
+
     }
 
     public String getType() {
@@ -59,5 +62,10 @@ public class Inventory {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%-15s %-20s %-20.2f %-15d ", id, name, price, quantity);
     }
 }

@@ -22,9 +22,8 @@ public class UserOutput {
         System.out.println();
     }
 
-    public static String displayItems() {
+/*    public static String displayItems() {
         File vendingItems = new File("catering.csv");
-
 
         try (Scanner fileInput = new Scanner(vendingItems)) {
             while(fileInput.hasNextLine()){
@@ -35,5 +34,5 @@ public class UserOutput {
             System.out.println("File not found!");
         }
         return "";
-    }
+    }*/
 }
