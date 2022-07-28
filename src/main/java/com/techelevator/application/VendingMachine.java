@@ -19,9 +19,10 @@ public class VendingMachine extends Inventory{
     private List<Inventory> item;
 
     Inventory inventory = new Inventory();
-
+    Money money = new Money();
     public void run() {
         readFile();
+
         while (true) {
             UserOutput.displayHomeScreen();
             String choice = UserInput.getHomeScreenOption();
@@ -33,6 +34,13 @@ public class VendingMachine extends Inventory{
                 }
 
             } else if (choice.equals("purchase")) {
+
+                UserOutput.displayPurchaseScreen();
+                choice = UserInput.getPurchaseScreenOption();
+                System.out.println(choice);
+                if (choice.equals("m")) {
+                    money.feedMoney();
+                }
                 // make a purchase
             } else if (choice.equals("exit")) {
                 // good bye

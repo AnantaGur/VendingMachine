@@ -1,5 +1,7 @@
 package com.techelevator.ui;
 
+import com.techelevator.application.Money;
+
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -32,6 +34,7 @@ public class UserInput {
         }
         else if (option.equals("p")) {
             return "purchase";
+
         }
         else if (option.equals("e")) {
             return "exit";
@@ -40,6 +43,36 @@ public class UserInput {
             return "";
         }
 
+    }
+    public static String getPurchaseScreenOption(){
+        System.out.println();
+        System.out.println("What would you like to do?");
+        System.out.println();
+
+        System.out.println("(M) Feed Money");
+        System.out.println("(S) Select Item");
+        System.out.println("(F) Finish Transaction");
+
+        System.out.println();
+        System.out.print("What would you like to do? ");
+
+        String selectedOption = scanner.nextLine();
+        String option = selectedOption.trim().toLowerCase();
+        System.out.println("option = " + option);
+        if (option.equals("m")) {
+            return "feed Money";
+
+        }
+        else if (option.equals("s")) {
+            return "select item";
+
+        }
+        else if (option.equals("f")) {
+            return "finish transaction";
+        }
+        else {
+            return "";
+        }
     }
 
 

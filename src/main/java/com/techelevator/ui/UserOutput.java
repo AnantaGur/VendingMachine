@@ -22,6 +22,14 @@ public class UserOutput {
         System.out.println();
     }
 
+    public static void displayPurchaseScreen(){
+        System.out.println();
+        System.out.println("***************************************************");
+        System.out.println("                      Purchase");
+        System.out.println("***************************************************");
+        System.out.println();
+    }
+
 /*    public static String displayItems() {
         File vendingItems = new File("catering.csv");
 

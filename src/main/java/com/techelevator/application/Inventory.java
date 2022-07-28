@@ -68,4 +68,5 @@ public class Inventory {
     public String toString() {
         return String.format("%-15s %-20s %-20.2f %-15d ", id, name, price, quantity);
     }
+
 }
