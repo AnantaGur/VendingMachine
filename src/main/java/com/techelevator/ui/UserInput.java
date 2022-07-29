@@ -51,9 +51,10 @@ public class UserInput {
         System.out.println("(M) Feed Money");
         System.out.println("(S) Select Item");
         System.out.println("(F) Finish Transaction");
-        System.out.print("Current money provided: $");
+
+        System.out.print("Current Money provided: $");
+        System.out.println(money.getTotalBalance());
         System.out.println();
-        money.getTotalBalance();
         System.out.print("What would you like to do? ");
 
         String selectedOption = scanner.nextLine();
@@ -62,7 +63,6 @@ public class UserInput {
         if (option.equals("m")) {
             System.out.println();
             return "Feed Money";
-
         }
         else if (option.equals("s")) {
             System.out.println();

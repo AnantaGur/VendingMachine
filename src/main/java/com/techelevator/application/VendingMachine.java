@@ -17,9 +17,9 @@ import java.util.Scanner;
 
 public class VendingMachine extends Inventory{
     private List<Inventory> item;
+    Money money = new Money();
 
     Inventory inventory = new Inventory();
-    Money money = new Money();
     public void run() {
         readFile();
 
