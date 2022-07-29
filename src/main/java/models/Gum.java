@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 
 public class Gum extends Inventory{
 
-    public Gum(String id, String name, BigDecimal price) {
+    public Gum(String id, String name, double price) {
         super(id, name, price);
     }
 

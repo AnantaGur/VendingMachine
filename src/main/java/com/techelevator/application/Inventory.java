@@ -9,11 +9,11 @@ import java.util.Scanner;
 public class Inventory {
     private String id;
     private String name;
-    private BigDecimal price;
+    private double price;
     private int quantity;
     private String type;
 
-    public Inventory(String id, String name, BigDecimal price) {
+    public Inventory(String id, String name, double price) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -48,11 +48,11 @@ public class Inventory {
         this.name = name;
     }
 
-    public BigDecimal getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(BigDecimal price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 

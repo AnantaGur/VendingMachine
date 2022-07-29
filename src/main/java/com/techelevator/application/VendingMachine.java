@@ -40,7 +40,7 @@ public class VendingMachine extends Inventory{
                     money.feedMoney();
                 } else if (choice.equals("Select Item")){
                     UserOutput.displayItems(item);
-                    selectItem(item);
+                    selectItem(money);
                 }
             }
                 // make a purchase
@@ -60,20 +60,20 @@ public class VendingMachine extends Inventory{
 
                 String[] lineArray = line.split(",");
                 if (lineArray[3].equals("Munchy")) {
-                    item.add(new Munchy(lineArray[0], lineArray[1], new BigDecimal(lineArray[2])));
+                    item.add(new Munchy(lineArray[0], lineArray[1], new Double(lineArray[2])));
                 } else if (lineArray[3].equals("Gum")) {
-                    item.add(new Gum(lineArray[0], lineArray[1], new BigDecimal(lineArray[2])));
+                    item.add(new Gum(lineArray[0], lineArray[1], new Double(lineArray[2])));
                 } else if (lineArray[3].equals("Drink")) {
-                    item.add(new Drink(lineArray[0], lineArray[1], new BigDecimal(lineArray[2])));
+                    item.add(new Drink(lineArray[0], lineArray[1], new Double(lineArray[2])));
                 } else if (lineArray[3].equals("Candy")) {
-                    item.add(new Candy(lineArray[0], lineArray[1], new BigDecimal(lineArray[2])));
+                    item.add(new Candy(lineArray[0], lineArray[1], new Double(lineArray[2])));
                 }
             }
         }catch(FileNotFoundException e){
             System.out.println("File not found");
         }
     }
-    public void selectItem(List<Inventory> item) {
+    public void selectItem(Money money) {
         Scanner selectItem = new Scanner(System.in);
         System.out.print("Enter slot code: ");
         String itemSelected = selectItem.nextLine();
@@ -88,6 +88,11 @@ public class VendingMachine extends Inventory{
                         System.out.print(lineArray[i] + " ");
                     }
                 }
+                if (lineArray[0].contains(itemSelected)){
+                    double priceOfItem = Double.parseDouble(lineArray[2]);
+                    money.purchaseAmount(priceOfItem);
+                }
+
             }
         } catch (FileNotFoundException e){
             System.out.println("Item not found");

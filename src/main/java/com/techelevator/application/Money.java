@@ -1,15 +1,5 @@
 package com.techelevator.application;
 
-import com.techelevator.ui.UserInput;
-import models.Candy;
-import models.Drink;
-import models.Gum;
-import models.Munchy;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -23,7 +13,7 @@ public class Money {
     private double balance;
 
     private List<Inventory> item;
-
+    VendingMachine vendingMachine = new VendingMachine();
 
     public void feedMoney() {
 
@@ -61,6 +51,12 @@ public class Money {
 
         }
     }
+
+    public double purchaseAmount(double price){
+        balance -= price;
+        return balance;
+    }
+
 
     public void setTotalBalance(double balance) {
         this.balance = balance;
