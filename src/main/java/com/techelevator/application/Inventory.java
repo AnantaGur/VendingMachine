@@ -58,14 +58,9 @@ public class Inventory {
 
 
     public void removeQuantity() {
-       if (quantity <= 0){
-           System.out.println("Product no longer available");
-           quantity = 0;
-        } else if (getPrice() > 0) {
            this.quantity --;
        }
 
-    }
 
 
     @Override

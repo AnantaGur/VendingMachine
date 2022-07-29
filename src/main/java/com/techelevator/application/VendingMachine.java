@@ -78,10 +78,20 @@ public class VendingMachine extends Inventory {
         for (int i = 0; i < item.size(); i++) {
 
             if (itemSelected.equalsIgnoreCase(item.get(i).getId())) {
-                item.get(i).removeQuantity();
-                money.purchaseAmount(item.get(i).getPrice());
-                System.out.println(item.get(i));
-                break;
+                if (item.get(i).getQuantity() <= 0){
+                    System.out.println("Product no longer available");
+                    break;
+                } else if (money.getTotalBalance() < item.get(i).getPrice()){
+                    System.out.println();
+                    System.out.println("Insufficient balance");
+                    break;
+                } else {
+                    item.get(i).removeQuantity();
+                    money.purchaseAmount(item.get(i).getPrice());
+                    System.out.println(item.get(i));
+
+                    break;
+                }
             }
 
         }
