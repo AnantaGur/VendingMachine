@@ -52,8 +52,14 @@ public class Money {
         }
     }
 
-    public double purchaseAmount(double price){
-        balance -= price;
+    public double purchaseAmount(double price) {
+        if (balance <= 0) {
+            System.out.println();
+            System.out.println("Insufficient balance");
+        } else {
+            balance -= price;
+            return balance;
+        }
         return balance;
     }
 

@@ -52,7 +52,7 @@ public class UserInput {
         System.out.println("(F) Finish Transaction");
 
         System.out.print("Current Money provided: $");
-        System.out.println(money.getTotalBalance());
+        System.out.printf("%.2f", money.getTotalBalance());
         System.out.println();
         System.out.print("What would you like to do? ");
 

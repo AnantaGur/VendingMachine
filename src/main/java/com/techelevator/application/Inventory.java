@@ -1,23 +1,19 @@
 package com.techelevator.application;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
 
 public class Inventory {
     private String id;
     private String name;
     private double price;
-    private int quantity;
+    private int quantity = 6;
     private String type;
+    private Map<String, Integer> slotQuantity = new TreeMap<>();
 
     public Inventory(String id, String name, double price) {
         this.id = id;
         this.name = name;
         this.price = price;
-        this.quantity = 6;
     }
 
     public Inventory() {
@@ -60,13 +56,20 @@ public class Inventory {
         return quantity;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+
+    public void removeQuantity() {
+        if (quantity <= 0){
+            quantity = 1;
+            System.out.println("Product no longer available");
+        }
+        this.quantity -= 1;
+
     }
+
 
     @Override
     public String toString() {
-        return String.format("%-15s %-20s %-20.2f %-15d ", id, name, price, quantity);
+        return String.format("%-15s %-20s $%-20.2f %-15d ", id, name, price, quantity);
     }
 
 }
