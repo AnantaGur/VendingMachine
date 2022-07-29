@@ -38,6 +38,8 @@ public class VendingMachine extends Inventory {
                     } else if (choice.equals("Select Item")) {
                         UserOutput.displayItems(item);
                         selectItem(money);
+                    } else if (choice.equals("finish transaction")){
+                        money.calculateChange();
                     }
                 }
                 // make a purchase
@@ -89,7 +91,7 @@ public class VendingMachine extends Inventory {
                     item.get(i).removeQuantity();
                     money.purchaseAmount(item.get(i).getPrice());
                     System.out.println(item.get(i));
-
+                    System.out.println(item.get(i).getSound());
                     break;
                 }
             }

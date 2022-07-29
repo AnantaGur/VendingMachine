@@ -8,7 +8,6 @@ public class Inventory {
     private double price;
     private int quantity = 6;
     private String type;
-    private Map<String, Integer> slotQuantity = new TreeMap<>();
 
     public Inventory(String id, String name, double price) {
         this.id = id;
@@ -59,8 +58,11 @@ public class Inventory {
 
     public void removeQuantity() {
            this.quantity --;
-       }
+    }
 
+    public String getSound(){
+        return "";
+    }
 
 
     @Override

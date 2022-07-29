@@ -10,4 +10,8 @@ public class Gum extends Inventory{
         super(id, name, price);
     }
 
+    @Override
+    public String getSound() {
+        return "Chewy, Chewy, Lots O Bubbles!";
+    }
 }

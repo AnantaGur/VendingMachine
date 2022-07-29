@@ -8,4 +8,9 @@ public class Drink extends Inventory {
     public Drink(String id, String name, double price) {
         super(id, name, price);
     }
+
+    @Override
+    public String getSound() {
+        return "Drinky, Drinky, Slurp Slurp!";
+    }
 }

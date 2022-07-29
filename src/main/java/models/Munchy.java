@@ -13,4 +13,9 @@ public class Munchy extends Inventory {
     public Munchy() {
     }
 
+    @Override
+    public String getSound() {
+        return "Munchy, Munchy, so Good!";
+    }
+
 }

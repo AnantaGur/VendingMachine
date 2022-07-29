@@ -11,7 +11,6 @@ public class Money {
     private final double TEN_DOLLAR = 10.00;
     private final double TWENTY_DOLLAR = 20.00;
     private double balance;
-   Inventory inventory = new Inventory();
 
     public void feedMoney() {
 
@@ -74,15 +73,34 @@ public class Money {
         return balance;
     }
 
-    @Override
-    public String toString() {
-        return "Money{" +
-                "ONE_DOLLAR=" + ONE_DOLLAR +
-                ", FIVE_DOLLAR=" + FIVE_DOLLAR +
-                ", TEN_DOLLAR=" + TEN_DOLLAR +
-                ", TWENTY_DOLLAR=" + TWENTY_DOLLAR +
-                ", balance=" + balance +
-                '}';
+    public void calculateChange(){
+        double dollarCounter = 0;
+        double quarterCounter = 0;
+        double dimeCounter = 0;
+        double nickleCounter = 0;
+        double quarter = 0.25;
+        double dime = 0.10;
+        double nickle = 0.05;
+
+        while (balance > 0){
+            if (balance >= ONE_DOLLAR){
+                balance -= ONE_DOLLAR;
+                dollarCounter++;
+            } else if (balance >= quarter){
+                balance -= quarter;
+                quarterCounter++;
+            } else if (balance >= dime){
+                balance -= dime;
+                dimeCounter++;
+            } else if (balance >= nickle){
+                balance -= nickle;
+                nickleCounter++;
+            }
+        }
+        System.out.println("Dollar bills: " + dollarCounter + "\nQuarters: " + quarterCounter +
+                "\nDimes: " + dimeCounter + "\nNickles: " + nickleCounter);
     }
+
+
 
 }
