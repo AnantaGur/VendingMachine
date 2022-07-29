@@ -1,13 +1,19 @@
 package com.techelevator.application;
 
 import com.techelevator.ui.UserInput;
+import models.Candy;
+import models.Drink;
+import models.Gum;
+import models.Munchy;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Money extends UserInput {
+public class Money {
 
 
     private final double ONE_DOLLAR = 1.00;
@@ -15,6 +21,8 @@ public class Money extends UserInput {
     private final double TEN_DOLLAR = 10.00;
     private final double TWENTY_DOLLAR = 20.00;
     private double balance;
+
+    private List<Inventory> item;
 
 
     public void feedMoney() {
@@ -39,7 +47,7 @@ public class Money extends UserInput {
             balance += amount;
             setTotalBalance(balance);
         } else if (amount == 3){
-            System.out.println("$10.00 added to balance");
+            System.out.println("$10.00 added to balance");//put in user output
             amount = TEN_DOLLAR;
             balance += amount;
             setTotalBalance(balance);
@@ -50,7 +58,7 @@ public class Money extends UserInput {
             setTotalBalance(balance);
         } else {
             System.out.println("Returning back to purchase screen");
-            getPurchaseScreenOption();
+
         }
     }
 
@@ -72,4 +80,5 @@ public class Money extends UserInput {
                 ", balance=" + balance +
                 '}';
     }
+
 }

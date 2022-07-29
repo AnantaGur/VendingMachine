@@ -10,5 +10,7 @@ public class Munchy extends Inventory {
         super(id, name, price);
     }
 
+    public Munchy() {
+    }
 
 }

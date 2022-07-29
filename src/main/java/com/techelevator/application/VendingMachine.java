@@ -17,7 +17,6 @@ import java.util.Scanner;
 
 public class VendingMachine extends Inventory{
     private List<Inventory> item;
-    Money money = new Money();
 
     Inventory inventory = new Inventory();
     public void run() {
@@ -29,18 +28,19 @@ public class VendingMachine extends Inventory{
             System.out.println(choice);
             if (choice.equals("display")) {
                 // display the items
-                for (int i = 0; i < item.size(); i++) {
-                    System.out.println(item.get(i));
-                }
+               UserOutput.displayItems(item);
 
             } else if (choice.equals("purchase")) {
+                Money money = new Money();
             while (true){
                 UserOutput.displayPurchaseScreen();
-                choice = UserInput.getPurchaseScreenOption();
+                choice = UserInput.getPurchaseScreenOption(money);
                 System.out.println(choice);
                 if (choice.equals("Feed Money")) {
                     money.feedMoney();
-//                    money.getTotalBalance();
+                } else if (choice.equals("Select Item")){
+                    UserOutput.displayItems(item);
+                    selectItem(item);
                 }
             }
                 // make a purchase
@@ -73,11 +73,25 @@ public class VendingMachine extends Inventory{
             System.out.println("File not found");
         }
     }
-
-    @Override
-    public String toString() {
-        return "VendingMachine{" +
-                "item=" + item +
-                '}';
+    public void selectItem(List<Inventory> item) {
+        Scanner selectItem = new Scanner(System.in);
+        System.out.print("Enter slot code: ");
+        String itemSelected = selectItem.nextLine();
+        Inventory inventory = new Inventory();
+        try {
+            Scanner fileInput = new Scanner(new File("vending.csv"));
+            while (fileInput.hasNextLine()){
+                String line = fileInput.nextLine();
+                String[] lineArray = line.split(",");
+                for (int i = 0; i < lineArray.length; i++) {
+                    if (lineArray[0].contains(itemSelected)) {
+                        System.out.print(lineArray[i] + " ");
+                    }
+                }
+            }
+        } catch (FileNotFoundException e){
+            System.out.println("Item not found");
+        }
+        }
     }
-}
+

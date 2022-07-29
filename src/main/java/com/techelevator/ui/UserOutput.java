@@ -1,7 +1,10 @@
 package com.techelevator.ui;
 
+import com.techelevator.application.Inventory;
+
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.List;
 import java.util.Scanner;
 
 public class UserOutput {
@@ -28,6 +31,11 @@ public class UserOutput {
         System.out.println("                      Purchase");
         System.out.println("***************************************************");
         System.out.println();
+    }
+    public static void displayItems(List<Inventory> item){
+        for (int i = 0; i < item.size(); i++) {
+            System.out.println(item.get(i));
+        }
     }
 
 /*    public static String displayItems() {

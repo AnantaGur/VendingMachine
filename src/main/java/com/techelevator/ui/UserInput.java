@@ -44,8 +44,7 @@ public class UserInput {
         }
 
     }
-    public static String getPurchaseScreenOption(){
-        Money money = new Money();
+    public static String getPurchaseScreenOption(Money money){
         System.out.println();
 
         System.out.println("(M) Feed Money");
@@ -66,7 +65,7 @@ public class UserInput {
         }
         else if (option.equals("s")) {
             System.out.println();
-            return "select item";
+            return "Select Item";
 
         }
         else if (option.equals("f")) {
