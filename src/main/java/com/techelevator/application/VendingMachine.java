@@ -40,6 +40,7 @@ public class VendingMachine extends Inventory{
                 System.out.println(choice);
                 if (choice.equals("Feed Money")) {
                     money.feedMoney();
+//                    money.getTotalBalance();
                 }
             }
                 // make a purchase
