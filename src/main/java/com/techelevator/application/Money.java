@@ -11,9 +11,7 @@ public class Money {
     private final double TEN_DOLLAR = 10.00;
     private final double TWENTY_DOLLAR = 20.00;
     private double balance;
-
-    private List<Inventory> item;
-    VendingMachine vendingMachine = new VendingMachine();
+   Inventory inventory = new Inventory();
 
     public void feedMoney() {
 
@@ -25,23 +23,23 @@ public class Money {
 
         Scanner moneyIn = new Scanner(System.in);
         double amount = moneyIn.nextDouble();
-        if (amount == 1){
+        if (amount == 1) {
             System.out.println("$1.00 added to balance");
             amount = ONE_DOLLAR;
             balance += amount;
             // THe next line will work once the Money is declared in the right spot.
             setTotalBalance(balance);
-        } else if (amount == 2){
+        } else if (amount == 2) {
             System.out.println("$5.00 added to balance");
             amount = FIVE_DOLLAR;
             balance += amount;
             setTotalBalance(balance);
-        } else if (amount == 3){
+        } else if (amount == 3) {
             System.out.println("$10.00 added to balance");//put in user output
             amount = TEN_DOLLAR;
             balance += amount;
             setTotalBalance(balance);
-        } else if (amount == 4){
+        } else if (amount == 4) {
             System.out.println("$20.00 added to balance");
             amount = TWENTY_DOLLAR;
             balance += amount;
@@ -53,18 +51,22 @@ public class Money {
     }
 
     public double purchaseAmount(double price) {
-        if (balance <= 0) {
+
+        if (balance <= 0.00) {
             System.out.println();
             System.out.println("Insufficient balance");
         } else {
             balance -= price;
-            return balance;
         }
         return balance;
     }
 
 
     public void setTotalBalance(double balance) {
+        if (balance <= 0) {
+            System.out.println("Insufficient Balance");
+            balance = 0.00;
+        }
         this.balance = balance;
     }
 

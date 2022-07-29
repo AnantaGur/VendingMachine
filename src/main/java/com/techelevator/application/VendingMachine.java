@@ -76,16 +76,14 @@ public class VendingMachine extends Inventory {
         System.out.print("Enter slot code: ");
         String itemSelected = selectItem.nextLine();
         for (int i = 0; i < item.size(); i++) {
-            if (itemSelected.equalsIgnoreCase(item.get(i).getId())){
-                if (item.get(i).getPrice() > money.purchaseAmount(getPrice())) {
-                    item.get(i).removeQuantity();
-                    money.purchaseAmount(item.get(i).getPrice());
-                    System.out.println(item.get(i));
-                } else {
-                    System.out.println("Insufficient funds");
-                }
+
+            if (itemSelected.equalsIgnoreCase(item.get(i).getId())) {
+                item.get(i).removeQuantity();
+                money.purchaseAmount(item.get(i).getPrice());
+                System.out.println(item.get(i));
                 break;
             }
+
         }
     }
 }

@@ -58,11 +58,12 @@ public class Inventory {
 
 
     public void removeQuantity() {
-        if (quantity <= 0){
-            quantity = 1;
-            System.out.println("Product no longer available");
-        }
-        this.quantity -= 1;
+       if (quantity <= 0){
+           System.out.println("Product no longer available");
+           quantity = 0;
+        } else if (getPrice() > 0) {
+           this.quantity --;
+       }
 
     }
 
