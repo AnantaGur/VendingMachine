@@ -10,6 +10,7 @@ import models.Munchy;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -98,7 +99,8 @@ public class VendingMachine extends Inventory {
                     System.out.println(item.get(i));
                     System.out.println(item.get(i).getSound());
                 }
-                logger.write(LocalDateTime.now() +" "+ item.get(i).getName() +" "+
+                Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+                logger.write(timestamp +" "+ item.get(i).getName() +" "+
                         item.get(i).getId() +" "+ money.getTotalBalance() +" "+  money.purchaseAmount(item.get(i).getPrice()));
             }
 
