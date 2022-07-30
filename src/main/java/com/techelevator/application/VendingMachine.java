@@ -1,5 +1,6 @@
 package com.techelevator.application;
 
+import com.techelevator.ui.Logger;
 import com.techelevator.ui.UserInput;
 import com.techelevator.ui.UserOutput;
 import models.Candy;
@@ -9,14 +10,17 @@ import models.Munchy;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class VendingMachine extends Inventory {
     private List<Inventory> item;
+    Logger logger;
 
     public void run() {
+        logger = new Logger("AuditFile.txt");
         readFile();
 
         while (true) {
@@ -40,11 +44,12 @@ public class VendingMachine extends Inventory {
                         selectItem(money);
                     } else if (choice.equals("finish transaction")){
                         money.calculateChange();
+                        run();
                     }
                 }
                 // make a purchase
             } else if (choice.equals("exit")) {
-                // good bye
+                System.exit(1);
                 break;
             }
         }
@@ -92,6 +97,8 @@ public class VendingMachine extends Inventory {
                     money.purchaseAmount(item.get(i).getPrice());
                     System.out.println(item.get(i));
                     System.out.println(item.get(i).getSound());
+                    logger.write(LocalDateTime.now() + item.get(i).getName() +
+                            item.get(i).getId() + money.getTotalBalance() +  money.purchaseAmount(item.get(i).getPrice()));
                     break;
                 }
             }

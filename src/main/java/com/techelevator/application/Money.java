@@ -1,5 +1,9 @@
 package com.techelevator.application;
 
+import com.techelevator.ui.Logger;
+
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Scanner;
 
@@ -11,6 +15,7 @@ public class Money {
     private final double TEN_DOLLAR = 10.00;
     private final double TWENTY_DOLLAR = 20.00;
     private double balance;
+    Logger logger = new Logger("AuditFile.txt");
 
     public void feedMoney() {
 
@@ -45,8 +50,9 @@ public class Money {
             setTotalBalance(balance);
         } else {
             System.out.println("Returning back to purchase screen");
-
         }
+
+        logger.write(LocalDateTime.now() + " MONEY FED: $" + amount + " $" + balance);
     }
 
     public double purchaseAmount(double price) {
@@ -95,12 +101,14 @@ public class Money {
             } else if (balance >= nickle){
                 balance -= nickle;
                 nickleCounter++;
+            } else {
+                balance = 0.00;
+                break;
             }
         }
         System.out.println("Dollar bills: " + dollarCounter + "\nQuarters: " + quarterCounter +
-                "\nDimes: " + dimeCounter + "\nNickles: " + nickleCounter);
+                "\nDimes: " + dimeCounter + "\nNickles: " + nickleCounter + "\nBalance left over: " + balance);
+
     }
-
-
 
 }
