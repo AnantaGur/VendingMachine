@@ -100,8 +100,8 @@ public class VendingMachine extends Inventory {
                     System.out.println(item.get(i).getSound());
                 }
                 Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-                logger.write(timestamp +" "+ item.get(i).getName() +" "+
-                        item.get(i).getId() +" "+ money.getTotalBalance() +" "+  money.purchaseAmount(item.get(i).getPrice()));
+                logger.writeSelectItem(timestamp.toString(), item.get(i).getName(),
+                        item.get(i).getId(),money.getTotalBalance(), money.purchaseAmount(item.get(i).getPrice()));
             }
 
         }

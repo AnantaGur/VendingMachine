@@ -4,6 +4,7 @@ import com.techelevator.ui.Logger;
 import com.techelevator.ui.UserInput;
 
 import java.math.BigDecimal;
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Scanner;
@@ -29,6 +30,7 @@ public class Money {
         Scanner moneyIn = new Scanner(System.in);
         String amountString = moneyIn.nextLine().toLowerCase();
         double amount = Double.parseDouble(amountString);
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
 
 
         if (amount != 1 || amount != 2 || amount != 3 || amount != 4) {
@@ -40,28 +42,27 @@ public class Money {
             balance += amount;
             // THe next line will work once the Money is declared in the right spot.
             setTotalBalance(balance);
-
+            logger.writeFeedMoney(timestamp.toString(), "MONEY FED:",amount, balance);
         } else if (amount == 2) {
             System.out.println("$5.00 added to balance");
             amount = FIVE_DOLLAR;
             balance += amount;
             setTotalBalance(balance);
-
+            logger.writeFeedMoney(timestamp.toString(), "MONEY FED:",amount, balance);
         } else if (amount == 3) {
             System.out.println("$10.00 added to balance");//put in user output
             amount = TEN_DOLLAR;
             balance += amount;
             setTotalBalance(balance);
-
+            logger.writeFeedMoney(timestamp.toString(), "MONEY FED:",amount, balance);
         } else if (amount == 4) {
             System.out.println("$20.00 added to balance");
             amount = TWENTY_DOLLAR;
             balance += amount;
             setTotalBalance(balance);
-
+            logger.writeFeedMoney(timestamp.toString(), "MONEY FED:",amount, balance);
         }
-
-//        logger.write(LocalDateTime.now() + " MONEY FED: $" + amount + " $" + balance);
+//        logger.writeFeedMoney(timestamp.toString(), "MONEY FED:",amount, balance);
     }
 
     public double purchaseAmount(double price) {
@@ -97,7 +98,9 @@ public class Money {
         double dime = 0.10;
         double nickle = 0.05;
         double firstBalance = balance;
-        logger.write(LocalDateTime.now() + " CHANGE GIVEN: $" + firstBalance + " $0.00");
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+       logger.writeChangeGiven(timestamp.toString(),
+               "CHANGE GIVEN:", firstBalance,"$0.00");
 
         while (balance > 0) {
             if (balance >= ONE_DOLLAR) {

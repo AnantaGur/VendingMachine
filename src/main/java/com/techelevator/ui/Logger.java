@@ -28,8 +28,24 @@ public class Logger {
         }
     }
 
-    public void write(String logMessage){
-        this.writer.println(logMessage);
+    public void writeSelectItem(String logMessage, String getName,
+                                String getId, double totalBalance, double purchaseAmount){
+        this.writer.printf("%-20s %-10s %-4s $%-4.2f $%-4.2f\n", logMessage,
+                getName, getId, totalBalance, purchaseAmount);
+        this.writer.flush();
+        this.writer.close();
+    }
+    public void writeChangeGiven(String logMessage, String changeGiven,
+                                double firstBalance, String totalBalance){
+        this.writer.printf("%-20s %-15s $%-4.2f %-4s\n", logMessage, changeGiven,
+                firstBalance, totalBalance);
+        this.writer.flush();
+        this.writer.close();
+    }
+    public void writeFeedMoney(String logMessage, String moneyFed,
+                                 double amount, double totalBalance){
+        this.writer.printf("%-20s %-15s $%-4.2f %-4s\n", logMessage, moneyFed,
+                amount, totalBalance);
         this.writer.flush();
         this.writer.close();
     }
