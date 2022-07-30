@@ -12,6 +12,6 @@ public class Candy extends Inventory {
 
     @Override
     public String getSound() {
-        return "Sugar, Sugar, so Sweet!";
+        return "\nSugar, Sugar, so Sweet!";
     }
 }

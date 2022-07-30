@@ -97,10 +97,9 @@ public class VendingMachine extends Inventory {
                     money.purchaseAmount(item.get(i).getPrice());
                     System.out.println(item.get(i));
                     System.out.println(item.get(i).getSound());
-                    logger.write(LocalDateTime.now() +" "+ item.get(i).getName() +" "+
-                            item.get(i).getId() +" "+ money.getTotalBalance() +" "+  money.purchaseAmount(item.get(i).getPrice()));
-                    break;
                 }
+                logger.write(LocalDateTime.now() +" "+ item.get(i).getName() +" "+
+                        item.get(i).getId() +" "+ money.getTotalBalance() +" "+  money.purchaseAmount(item.get(i).getPrice()));
             }
 
         }

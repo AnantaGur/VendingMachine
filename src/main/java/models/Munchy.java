@@ -15,7 +15,7 @@ public class Munchy extends Inventory {
 
     @Override
     public String getSound() {
-        return "Munchy, Munchy, so Good!";
+        return "\nMunchy, Munchy, so Good!";
     }
 
 }

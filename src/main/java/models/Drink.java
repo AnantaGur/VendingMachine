@@ -11,6 +11,6 @@ public class Drink extends Inventory {
 
     @Override
     public String getSound() {
-        return "Drinky, Drinky, Slurp Slurp!";
+        return "\nDrinky, Drinky, Slurp Slurp!";
     }
 }

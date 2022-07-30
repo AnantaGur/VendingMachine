@@ -12,6 +12,6 @@ public class Gum extends Inventory{
 
     @Override
     public String getSound() {
-        return "Chewy, Chewy, Lots O Bubbles!";
+        return "\nChewy, Chewy, Lots O Bubbles!";
     }
 }
