@@ -1,6 +1,7 @@
 package com.techelevator.application;
 
 import com.techelevator.ui.Logger;
+import com.techelevator.ui.UserInput;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -26,32 +27,41 @@ public class Money {
         System.out.print("Choose a Dollar amount: ");
 
         Scanner moneyIn = new Scanner(System.in);
-        double amount = moneyIn.nextDouble();
-        if (amount == 1) {
-            System.out.println("$1.00 added to balance");
-            amount = ONE_DOLLAR;
-            balance += amount;
-            // THe next line will work once the Money is declared in the right spot.
-            setTotalBalance(balance);
-        } else if (amount == 2) {
-            System.out.println("$5.00 added to balance");
-            amount = FIVE_DOLLAR;
-            balance += amount;
-            setTotalBalance(balance);
-        } else if (amount == 3) {
-            System.out.println("$10.00 added to balance");//put in user output
-            amount = TEN_DOLLAR;
-            balance += amount;
-            setTotalBalance(balance);
-        } else if (amount == 4) {
-            System.out.println("$20.00 added to balance");
-            amount = TWENTY_DOLLAR;
-            balance += amount;
-            setTotalBalance(balance);
-        } else {
+        String amountString = moneyIn.nextLine();
+        double amount = Double.parseDouble(amountString);
+        if (amountString != "1" || amountString != "2" || amountString != "3" || amountString != "4") {
             System.out.println("Returning back to purchase screen");
+            if (amount == 1) {
+                System.out.println("$1.00 added to balance");
+                amount = ONE_DOLLAR;
+                balance += amount;
+                logger.write(LocalDateTime.now() +
+                        " MONEY FED: $" + amount + " $" + balance);
+                // THe next line will work once the Money is declared in the right spot.
+                setTotalBalance(balance);
+            } else if (amount == 2) {
+                System.out.println("$5.00 added to balance");
+                amount = FIVE_DOLLAR;
+                balance += amount;
+                setTotalBalance(balance);
+                logger.write(LocalDateTime.now() +
+                        " MONEY FED: $" + amount + " $" + balance);
+            } else if (amount == 3) {
+                System.out.println("$10.00 added to balance");//put in user output
+                amount = TEN_DOLLAR;
+                balance += amount;
+                setTotalBalance(balance);
+                logger.write(LocalDateTime.now() +
+                        " MONEY FED: $" + amount + " $" + balance);
+            } else if (amount == 4) {
+                System.out.println("$20.00 added to balance");
+                amount = TWENTY_DOLLAR;
+                balance += amount;
+                setTotalBalance(balance);
+                logger.write(LocalDateTime.now() +
+                        " MONEY FED: $" + amount + " $" + balance);
+            }
         }
-
         logger.write(LocalDateTime.now() + " MONEY FED: $" + amount + " $" + balance);
     }
 
@@ -87,6 +97,8 @@ public class Money {
         double quarter = 0.25;
         double dime = 0.10;
         double nickle = 0.05;
+        double firstBalance = balance;
+        logger.write(LocalDateTime.now() + " CHANGE GIVEN: $" + firstBalance + " $0.00");
 
         while (balance > 0){
             if (balance >= ONE_DOLLAR){
@@ -103,12 +115,11 @@ public class Money {
                 nickleCounter++;
             } else {
                 balance = 0.00;
-                break;
+
             }
         }
         System.out.println("Dollar bills: " + dollarCounter + "\nQuarters: " + quarterCounter +
                 "\nDimes: " + dimeCounter + "\nNickles: " + nickleCounter + "\nBalance left over: " + balance);
-
     }
 
 }
