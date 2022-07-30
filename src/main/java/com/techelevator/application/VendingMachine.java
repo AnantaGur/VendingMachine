@@ -21,7 +21,6 @@ public class VendingMachine extends Inventory {
     Logger logger;
 
     public void run() {
-        logger = new Logger("AuditFile.txt");
         readFile();
 
         while (true) {
@@ -80,6 +79,7 @@ public class VendingMachine extends Inventory {
     }
 
     public void selectItem(Money money) {
+        logger = new Logger("AuditFile.txt");
         Scanner selectItem = new Scanner(System.in);
         System.out.print("Enter slot code: ");
         String itemSelected = selectItem.nextLine();

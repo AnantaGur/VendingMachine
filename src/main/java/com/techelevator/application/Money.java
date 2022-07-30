@@ -17,10 +17,10 @@ public class Money {
     private final double TEN_DOLLAR = 10.00;
     private final double TWENTY_DOLLAR = 20.00;
     private double balance;
-    Logger logger = new Logger("AuditFile.txt");
+
 
     public void feedMoney() {
-
+        Logger logger = new Logger("AuditFile.txt");
         System.out.println("1) $1.00 ");
         System.out.println("2) $5.00 ");
         System.out.println("3) $10.00 ");
@@ -90,6 +90,7 @@ public class Money {
     }
 
     public void calculateChange() {
+        Logger logger = new Logger("AuditFile.txt");
         double dollarCounter = 0;
         double quarterCounter = 0;
         double dimeCounter = 0;

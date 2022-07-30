@@ -44,7 +44,7 @@ public class Logger {
     }
     public void writeFeedMoney(String logMessage, String moneyFed,
                                  double amount, double totalBalance){
-        this.writer.printf("%-20s %-15s $%-4.2f %-4s\n", logMessage, moneyFed,
+        this.writer.printf("%-20s %-15s $%-4.2f $%-4.2s\n", logMessage, moneyFed,
                 amount, totalBalance);
         this.writer.flush();
         this.writer.close();
